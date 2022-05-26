@@ -1,0 +1,141 @@
+@use '../function/import' as import;
+/*------------------------------------------------------------
+btn
+--------------------------------------------------------------*/
+//ボタンカラー
+$contact-btn-color: #CC5E56;
+$section-btn-color: #88CC55;
+$sp-btn-contact-color: #CC5E56;
+$sp-btn-tel-color: #88CC55;
+
+//ボタンサイズ
+$contact-btn-width: 148px;
+$contact-footer-btn-width: 267px;
+$section-btn-width: 260px;
+$sp-btn-width: 334px;
+
+//ヘッダーお問い合わせボタン
+.btn{
+    @include import.btn-style($contact-btn-color, $contact-btn-width);
+    &:hover{
+        background-color: #F87B72;
+    }
+}
+
+.btn--header-sp{
+    display: none;
+    @include import.sp{
+        @include import.btn-style($contact-btn-color, $contact-btn-width);
+        position: fixed;
+        right: 70px;
+        top: 15px;
+        &:hover{
+            background-color: #F87B72;
+        }
+    }
+    
+}
+//ハンバーガーメニューオープン時電話ボタン
+.btn--sp-tel{
+    display: none;
+    @include import.sp {
+        display: block;
+        font-size: import.rem(24);
+        @include import.btn-style($sp-btn-tel-color, $sp-btn-width);
+        &__text01{
+            color: #FFFFFF;
+            font-size: import.rem(12);
+            &::after{
+                @include import.icon-style();
+                width: 24px;
+                height: 33px;
+                margin: 0 16px;
+                margin-right: 5px;
+                background-image: url(../images/sp-telephone-icon.png);
+                background-repeat: no-repeat;
+            }
+        }
+        &__text02{
+            color: #FFFFFF;
+            font-size: import.rem(24);
+        }
+        
+
+        &:hover{
+            background-color: #A1E894;
+        }
+    }
+}
+//ハンバーガーメニューオープン時お問い合わせボタン
+.btn--sp-contact{
+    display: none;
+    @include import.sp {
+        display: block;
+        margin-top: 24px;
+        @include import.btn-style($sp-btn-contact-color, $sp-btn-width);
+
+        span{
+            color: #FFFFFF;
+            font-size: import.rem(16);
+            &::before{
+                @include import.icon-style();
+                width: 30px;
+                height: 24px;
+                margin: 5px 24px 5px 0;
+                background-image: url(../images/sp-email-icon.png);
+                background-repeat: no-repeat;
+            }
+        }
+        &:hover{
+            background-color: #F87B72;
+        }
+    }
+}
+//レスポンシブスタイルボタン上の余白
+.btn-spacing-sp{
+    display: none;
+    @include import.sp {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        margin-top: 72px;
+    }
+    
+}
+//サービス詳細ボタン
+.btn--service{
+    @include import.btn-style($section-btn-color, $section-btn-width);
+    &:hover{
+        background-color: #A1E894;
+    }
+}
+
+.btn-spacing{
+    display: flex;
+    justify-content: center;
+    margin: 56px auto 64px auto;
+    @include import.sp {
+        margin: 48px auto 64px auto;
+    }
+    
+}
+//ブログ一覧ボタン
+.btn--blog{
+    @include import.btn-style($section-btn-color, $section-btn-width);
+    &:hover{
+        background-color: #A1E894;
+    }
+}
+//フッターお問い合わせボタン
+.btn--footer-contact{
+    @include import.btn-style($contact-btn-color, $contact-footer-btn-width);
+
+    margin-left: 28px;
+    @include import.sp{
+        margin-top: 16px;
+        margin-left: 0;
+    }
+    &:hover{
+        background-color: #F87B72;
+    }
+}

@@ -1,0 +1,107 @@
+// @use '../function/function' as fc;
+// @use '../function/mixin' as mx;
+
+@use '../function/import' as import;
+
+.access{
+    padding: 64px 0;
+    &__title{
+        @include import.title-style();
+    }
+    &__item{
+        padding-top: 56px;
+        //住所のテキスト
+        &-address{
+            font-size: import.rem(23);
+            margin-top: 48px;
+            &-text-a{
+                display: inline-block;
+                text-align: center;
+                width: 110px;
+                color: #CC5E56;
+                letter-spacing: import.letterSpace(300);
+                background-color: #FCF3DD;
+                padding: 5px 0;
+                margin-right: 24px;
+
+                @include import.sp{
+                    display: block;
+                    background-color:transparent;
+                    text-align: left;
+                }
+            }
+            &-text-b{
+                color: #3D3732;
+                line-height: import.lineSpace(30, 21);
+            }
+            span{
+                @include import.sp{
+                    display: block;
+                }
+            }
+        }
+        //交通手段リスト
+        &-list{
+            display: flex;
+            flex-wrap: wrap;
+            @include import.sp{
+                flex-flow: column;
+            }
+            & dt{
+                width: 40%;
+                border-bottom: 1px solid #CC5E56;
+                padding-top: 40px;
+                font-size: import.rem(24);
+                color: #3D3732;
+                
+                @include import.sp{
+                    width: 100%;
+                    font-size: import.rem(22);
+                }
+            }
+
+            & dd{
+                width: 60%;
+                border-bottom: 1px solid #CC5E56;
+                padding-top: 40px;
+                font-size: import.rem(18);
+                color: #3D3732;
+                font-weight: normal;
+                letter-spacing: import.letterSpace(50);
+                line-height: import.lineSpace(25, 18);
+                @include import.sp{
+                    width: 100%;
+                    padding-top: 24px;
+                    border-bottom: none;
+                }
+            }
+            //交通手段リストのアイコン
+            &-car::before{
+                @include import.icon-style();
+                width: 34px;
+                height: 27px;
+                margin-right: 40px;
+                background-image: url(../images/car-icon.png);
+                background-repeat: no-repeat;
+            }
+
+            &-bus::before{
+                @include import.icon-style();
+                width: 30px;
+                height: 36px;
+                margin-right: 40px;
+                background-image: url(../images/bus-icon.png);
+                background-repeat: no-repeat;
+            }
+
+            &-train::before{
+                @include import.icon-style();
+                width: 26px;
+                height: 35px;
+                margin-right: 40px;
+                background-image: url(../images/train-icon.png);
+                background-repeat: no-repeat;
+            }
+        }
+    }
+}

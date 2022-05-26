@@ -1,0 +1,21 @@
+/*------------------------------------------------------------
+関数
+--------------------------------------------------------------*/
+//字間計算
+@function letterSpace($space){
+    @return $space / 1000 * 1em;
+
+}
+
+//行間計算
+@function lineSpace($space, $font-size){
+    //第2小数点までの値にする
+    @return round($space / $font-size * 100) / 100;
+
+}
+
+//rem計算
+$baseFontSize: 16;
+@function rem($pixels) {
+    @return $pixels / $baseFontSize * 1rem;
+}

@@ -1,0 +1,52 @@
+@use '_function.scss' as fc;
+/*------------------------------------------------------------
+mixin
+--------------------------------------------------------------*/
+// ブレイクポイント
+@mixin sp() {
+    @media  screen and (max-width:767px) {
+        @content;
+    }
+}
+
+// ボタンの共通スタイル
+@mixin btn-style($btn-color, $btn-size) {
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    padding: 0.7em 0em;
+    background-color: $btn-color;
+    min-width:  $btn-size;
+    color: #FFFFFF;
+    font-size: fc.rem(16);
+    border-radius: 50vh;
+    text-decoration: none;
+}
+
+
+// 見出しのスタイル
+@mixin title-style() {
+    position: relative;
+    text-align: center;
+    font-size: fc.rem(28);
+    color: #3D3732;
+    letter-spacing: fc.letterSpace(100);
+    padding-bottom: 32px;
+    &::after{
+        border-bottom: 1px solid #88CC55;
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+    }
+}
+
+//交通手段リストのアイコンのスタイル
+@mixin icon-style() {
+    content: "";
+    display: inline-block;
+    background-size: contain;
+    vertical-align: middle;
+}

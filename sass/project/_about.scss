@@ -1,0 +1,46 @@
+@use '../function/import' as import;
+/*------------------------------------------------------------
+about
+--------------------------------------------------------------*/
+.about{
+    text-align: center;
+    padding-top: 80px;
+    @include import.sp{
+        padding: 40px;
+    }
+    &__title{
+        font-size: import.rem(32);
+        position: relative;
+        margin-bottom: 48px;
+        padding-bottom: 16px;
+        letter-spacing: import.letterSpace(100);
+        @include import.sp{
+            padding-bottom: 0;
+            margin-bottom: 24px;
+        }
+        &::after{
+            border-bottom: 5px dotted #CC5E56;
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 49%;
+            transform: translateX(-50%);
+            width: 440px;
+            @include import.sp{
+                display: none;
+            }
+        }
+        //SP時改行
+        span{
+            @include import.sp{
+                display: inline-block;
+            }
+        }
+    }
+    &__text{
+        max-width: 500px;
+        margin: 0 auto;
+        font-weight: normal;
+        line-height: import.lineSpace(25, 16);
+    }
+}

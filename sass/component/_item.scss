@@ -1,0 +1,24 @@
+@use '../function/import' as import;
+/*------------------------------------------------------------
+item
+--------------------------------------------------------------*/
+.item{
+    text-align: center;
+    max-width: 325px;
+    @include import.sp{
+        margin-top: 32px;
+    }
+    
+    &__img{
+        vertical-align: bottom;
+    }
+    &__title{
+        font-size: import.rem(24);
+        margin: 24px 0;
+        color: #3D3732;
+    }
+    &__text{
+        font-weight: normal;
+        line-height: import.lineSpace(25, 16);
+    }
+}

@@ -1,0 +1,22 @@
+
+@use '../function/import' as import;
+/*------------------------------------------------------------
+service
+--------------------------------------------------------------*/
+.service{
+    padding-top: 55px;
+    @include import.sp{
+        padding-top: 16px;
+    }
+    &__container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include import.sp{
+            flex-flow: column;
+            :first-child{
+                margin-top: 0;
+            }
+        }
+    }
+}

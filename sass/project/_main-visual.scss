@@ -1,0 +1,74 @@
+@use '../function/import' as import;
+/*------------------------------------------------------------
+main-visual
+--------------------------------------------------------------*/
+.main-visual{
+    position: relative;
+    margin-top: 24px;
+    //見出し
+    &__heading{
+        position: absolute;
+        z-index: 1;
+        font-family: 'Kosugi Maru', sans-serif;
+        letter-spacing: import.letterSpace(100);
+        top: 70%;
+        left: 8%;
+        font-size: import.rem(38);
+        color: #FFFFFF;
+        text-shadow: 1px 2px 3px#6E6965;
+        @include import.sp {
+            font-size: import.rem(23);
+            top: 65%;
+            left: 5%;
+        }
+    }
+    //スライドショーエリア
+    &__fade-area{
+        width: 100%;
+        position: relative;
+        &::before{
+            content: '';
+            display: block;
+            padding-top: 40%;
+            @include import.sp{
+                padding-top: 60%;
+            }
+        }
+        @include import.sp{
+            margin-top: 90px;
+        }
+        &-list {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+        }
+        //背景画像で表示
+        &-list:nth-child(1){
+            background-image: url(../images/main1.png);
+        }
+        &-list:nth-child(2){
+            background-image: url(../images/main2.png);
+        }
+        &-list:nth-child(3){
+            background-image: url(../images/main3.png);
+        }
+        //imgタグを残して画像は非表示(backgroundで表示)
+        &-img {
+            width: 1px;
+            height: 1px;
+            clip: rect(1px, 1px, 1px, 1px);
+            -webkit-clip-path: inset(50%);
+            clip-path: inset(50%);
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            position: absolute;
+        }
+    }
+}

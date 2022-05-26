@@ -1,0 +1,69 @@
+
+@use '../function/import' as import;
+/*------------------------------------------------------------
+blog
+--------------------------------------------------------------*/
+.blog{
+    padding-top: 64px;
+    &__title{
+        @include import.title-style();
+    }
+    &__list{
+        display: flex;
+        gap: import.rem(50);
+        padding-top: 56px;
+        &-item:hover{
+            opacity: 0.5;
+            .blog__item-title{
+                color: #88CC55;
+            }
+        }
+        @include import.sp{
+            flex-flow: column;
+            gap: import.rem(40);
+        }
+    }
+
+    &__item{
+        display: block;
+        max-width: 232px;
+        text-decoration: none;
+        text-align: left;
+        @include import.sp{
+            display: flex;
+            justify-content: space-between;
+            max-width: 100%;
+        }
+    
+        &-img{
+            vertical-align: bottom;
+            @include import.sp{
+                display: flex;
+                width: 50%;
+            }
+        }
+        &-text{
+            width: 100%;
+            @include import.sp{
+                width: 45%;
+            }
+        }
+        &-time{
+            margin-top: 16px;
+            color: #88CC55;
+            letter-spacing: import.letterSpace(80);
+            @include import.sp{
+                margin-top: 0;
+            }
+        }
+
+        &-title{
+            margin-top: 16px;
+            color: #3D3732;
+            font-size: import.rem(22);
+            @include import.sp{
+                font-size: import.rem(18);
+            }
+        }
+    }
+}

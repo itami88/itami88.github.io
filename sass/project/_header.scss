@@ -1,0 +1,172 @@
+@use '../function/import' as import;
+
+/*------------------------------------------------------------
+header
+--------------------------------------------------------------*/
+.header{
+    @include import.sp{
+        position: fixed;
+        width: 100%;
+        height: 70px;
+        background-color: white;
+        z-index: 999;
+        top: 0;
+        box-shadow: 5px 5px 5px rgba(88, 86, 86, 0.6);
+    }
+    &__top{
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+
+    }
+    &__logo{
+        display: block;
+        @include import.sp{
+            position: fixed;
+            z-index: 3;
+            left: 20px;
+            top: 10px;
+        }
+        &-img{
+            @include import.sp{
+                width: 138px;
+            }
+        }
+    }
+    &__contact{
+        height: 100px;
+        width: 654px;
+    }
+    //ハンバーガーメニュボタン
+    &__navi-btn{
+        @include import.sp {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 30px;
+            height: 24px;
+            z-index: 3;
+            box-sizing: border-box;
+            cursor: pointer;
+            -webkit-transition: all 400ms;
+            transition: all 400ms
+        }
+
+        span{
+            @include import.sp {
+                position: absolute;
+                width: 30px;
+                height: 4px;
+                background: #666;
+                border-radius: 10px;
+                -webkit-transition: all 400ms;
+                transition: all 400ms
+            }
+
+            @include import.sp{
+                &:nth-child(1){
+                    top: 0;
+                }
+                &:nth-child(2){
+                    top: 10px;
+                }
+                &:nth-child(3){
+                    top: 20px;
+                }
+
+            }
+        }
+    }
+    //ハンバーガーメニューオープン時
+    //アイコンを交差させる
+    &__navi-btn--cross{
+        span{
+            @include import.sp{
+                &:nth-child(1){
+                    transform: rotate(45deg);
+                    top: 10px;
+                }
+                &:nth-child(2){
+                    opacity: 0;
+                }
+                &:nth-child(3){
+                    transform: rotate(-45deg);
+                    top: 10px;
+                }
+
+            }
+        }
+    }
+    &__navi-container{
+            margin-top: 45px;
+            @include import.sp {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                padding: 50px 30px;
+                margin-top: 0;
+                box-sizing: border-box;
+                z-index: 2;
+                background-color: #FCF3DD;
+            }
+    }
+    //ヘッダーナビメニュー
+    &__navi{
+        &-menu{
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            @include import.sp {
+                text-align: center;
+                display: flex;
+                flex-flow: column;
+            }
+            li{
+                margin-left: 50px;
+                display: inline-block;
+                @include import.sp {
+                    display: block;
+                    padding: 48px 0 0 0;
+                    margin-left: 0;
+
+                }
+                li:first-child{
+                    margin-left: 0;
+                }
+
+                a{
+                    position: relative;
+                    display: inline-block;
+                    text-decoration: none;
+                    color: #3D3732;
+                    @include import.sp {
+                        text-decoration: none;
+                        color: #3D3732;
+                    }
+                    &::after{
+                        position: absolute;
+                        bottom: -3px;
+                        left: 0;
+                        content: '';
+                        width: 100%;
+                        height: 1px;
+                        background-color: #88CC55;
+                        transform: scale(0, 1);
+                        transform-origin: left top;
+                        transition: transform .3s;
+
+                    }
+                    &:hover{
+                        color: #88CC55;
+                    }
+                    &:hover::after{
+                        transform: scale(1, 1);
+                    }
+                }
+            }
+        }
+    }
+
+}

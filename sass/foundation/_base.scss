@@ -1,0 +1,34 @@
+/*------------------------------------------------------------
+base.css
+--------------------------------------------------------------*/
+
+*{
+    margin:0; padding:0;
+    
+}
+
+html{
+    font-size: 100%;
+}
+
+body{
+    color: #6E6965;
+    font-weight: bold;
+    font-family: 'BIZ UDGothic', Arial, Helvetica, 
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    sans-serif;
+}
+
+img {
+    max-width: 100%;
+    object-fit: cover;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}

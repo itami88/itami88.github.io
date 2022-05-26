@@ -1,0 +1,55 @@
+@use '../function/import' as import;
+/*------------------------------------------------------------
+footer
+--------------------------------------------------------------*/
+.footer{
+    &__top{
+        background-color: #FCF3DD;
+        padding: 56px 0;
+        
+        &-inner{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            @include import.sp{
+                flex-flow: column;
+            }
+        }
+    }
+
+    &__contact{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @include import.sp{
+            flex-flow: column;
+        }
+        &-tel{
+            color: #CC5E56;
+            font-family: 'BIZ UDPGothic',sans-serif;
+            font-size: import.rem(29);
+            letter-spacing: import.letterSpace(50);
+            &::before{
+                @include import.icon-style();
+                width: 24px;
+                height: 34px;
+                margin-bottom: 10px;
+                margin-right: 5px;
+                background-image: url(../images/telephone-icon.png);
+                background-repeat: no-repeat;
+            }
+        }
+        &-time-reception{
+            text-align: left;
+            font-size: import.rem(14);
+        }
+    }
+    &__bottom{
+        background-color: #88CC55;
+        padding: 24px 0;
+        &-copyright{
+            text-align: center;
+            color: #FFFFFF;
+        }
+    }
+}

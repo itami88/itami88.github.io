@@ -1,0 +1,70 @@
+@use '../function/import' as import;
+
+/*------------------------------------------------------------
+news
+--------------------------------------------------------------*/
+.news{
+    background-color: #FCF3DD;
+    padding: 64px 0;
+
+    &__title{ 
+        @include import.title-style();
+    }
+    &__list{
+        margin-top: 36px;
+    }
+    &__list-item{
+
+        &-link{
+            display: flex;
+            align-items: center;
+            border-bottom: 0.5px solid #6E6965;
+            text-decoration: none;
+            padding: 20px;
+            transition: 0.3s;
+            @include import.sp{
+                //padding: 10px;
+                flex-flow: wrap;
+            }
+            &:hover{
+                background-color: #fdfaf3;
+                .news__list-item-text{
+                    color: #88CC55;
+                }
+                .news__list-item-img{
+                    opacity: 0.5;
+                }
+            }
+        }
+        &-time{
+            color: #88CC55;
+        }
+
+        &-label{
+            margin: 0 40px;
+            color: #88CC55;
+        }
+
+        &-text{
+            color: #3D3732;
+        }
+
+        &-img{
+            margin-right: 0;
+            margin-left: auto;
+        }
+
+    }
+    &__more{
+        display: block;
+        font-weight: normal;
+        color: #3D3732;
+        text-decoration: none;
+        text-align: right;
+        margin-top: 28px;
+
+        &:hover{
+            color: #88CC55
+        }
+    }
+}
